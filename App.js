@@ -18,6 +18,7 @@ export default function App() {
   function brokenCookie() {
     let nRandom = Math.floor(Math.random() * frases.length);
     setTextoFrase('" ' + frases[nRandom] + ' "');
+    setImg(require('./src/assets/biscoitoAberto.png'));
   }
 
   return (
