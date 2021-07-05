@@ -3,6 +3,22 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [img, setImg] = useState(require('./src/assets/biscoito.png'));
+  const [textoFrase, setTextoFrase] = useState('');
+
+  let frases = [
+    'Siga os bons e aprenda com eles.',
+    'O bom-senso vale mais do que muito conhecimento.',
+    'O riso é a menor distância entre duas pessoas.',
+    'Deixe de lado as preocupações e seja feliz.',
+    'Realize o óbvio, pense no improvável e conquiste o impossível.',
+    'Acredite  em milagres, mas não dependa deles.',
+    'A maior barreira para o sucesso é o medo do fracasso.'
+  ];
+
+  function brokenCookie() {
+    let nRandom = Math.floor(Math.random() * frases.length);
+    setTextoFrase('" ' + frases[nRandom] + ' "');
+  }
 
   return (
     <View style={styles.container}>
@@ -11,9 +27,9 @@ export default function App() {
         style={styles.img}
       />
 
-      <Text style={styles.textoFrase}>" Está é minha primeira frase do biscoito "</Text>
+      <Text style={styles.textoFrase}>{textoFrase}</Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => alert('Clicou')}>
+      <TouchableOpacity style={styles.button} onPress={brokenCookie}>
         <View style={styles.btnArea}>
           <Text style={styles.btnTexto}>
             Quebrar Biscoito
